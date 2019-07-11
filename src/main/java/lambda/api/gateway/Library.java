@@ -3,13 +3,22 @@
  */
 package lambda.api.gateway;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
-    public String findFirstRepeatedWord(String sentence, Context c) {
-        LambdaLogger logger = c.getLogger();
-        logger.log(sentence);
-        return "";
+    public String findFirstRepeatedWord(String sentence) {
+        String[] words = sentence.split(" ");
+        HashMap occurrences = new HashMap();
+        String repeatedWord = "";
+        for (int i = 0; i < words.length; i++) {
+            if (occurrences.containsKey(words[i])) {
+                System.out.println(words[i]);
+                repeatedWord = words[i];
+            } else {
+                occurrences.put(words[i], 1);
+            }
+        }
+        return repeatedWord;
     }
 }
