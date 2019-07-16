@@ -10,6 +10,6 @@ public class LibraryTest {
     @Test
     public void testFindFirstRepeatedWord() {
         Library library = new Library();
-        library.findFirstRepeatedWord("this is the sentence with all the words");
+        System.out.println(library.findFirstRepeatedWord("this is the sentence with all the words, words, words, words..."));
     }
 }
